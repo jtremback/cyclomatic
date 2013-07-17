@@ -1,0 +1,10 @@
+{
+   "dependencies" : {
+    "docpad": "6.21.x",
+    "docpad-plugin-ghpages": "2.0.x",
+    "docpad-plugin-eco": "2.0.x",
+    "docpad-plugin-stylus": "2.2.x",
+    "docpad-plugin-livereload": "2.3.x",
+    "docpad-plugin-jade": "2.3.x"
+  }
+}

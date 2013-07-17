@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<head>
+		<title><%= @getPreparedTitle() %></title>
+		<%- @getBlock("meta").toHTML() %>
+		<%- @getBlock("styles").add(["styles/style.css"]).toHTML() %>
+	<link href='http://fonts.googleapis.com/css?family=
+		Source+Sans+Pro:200,300,400
+		' rel='stylesheet' type='text/css'>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<%- @content %>
+		<%- @getBlock("scripts").add(["vendor/zepto.js", "vendor/touch.zepto.js", "vendor/gauge.js", "scripts/script.js"]).toHTML() %>
+	</body>
+</html>
+
+<!-- Yanone+Kaffeesatz:200,300,400,700|
+Source+Sans+Pro:200,300,400|
+Dosis:200,300,400|
+Josefin+Sans:300,400,600|
+Raleway:400,300,200|
+ -->

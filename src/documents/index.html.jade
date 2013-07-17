@@ -1,0 +1,58 @@
+---
+layout: "default"
+---
+
+directions = [{"t":"Right on Van Ness", "i":"right"}, {"t":"Left on Eddy", "i":"left"}, {"t":"Right on 5th", "i":"right"}, {"t":"Left on Clara", "i":"left"}]
+
+.topbar.js-blur-target
+	i.icon-long-arrow-left.pull-left.js-go
+	._title
+		|Cyclomatic
+	i.icon-reorder.pull-right
+
+.topbar.-fix.js-blur-target
+	i.icon-long-arrow-left.pull-left.js-go
+	._title
+		|Cyclomatic
+	i.icon-reorder.pull-right
+
+#main.-hide.js-blur-target
+	.route
+		._start
+			._title START:
+			._address 1200 Geary st.
+		._end
+			._title END:
+			._address 185 Clara st.
+	.map
+		img(src="images/waze.png")
+
+	.bottombar 
+		|Fos Signals: 
+		span On
+
+
+
+
+	.directions
+		each direction in directions
+			.direction
+				if direction.i == "left"
+					i.icon-caret-left
+				if direction.i == "right"
+					i.icon-caret-right
+				._text #{direction.t}
+
+#route_select.js-blur-target
+	form
+		div START
+		input(type="text", placeholder="(Current Location)")
+		div END
+		input(type="text")
+		.button.pull-right.js-go Go!
+
+	.bottombar 
+		|Select Fos signal style
+
+#loading.-hide
+	img(src="images/loading.gif")

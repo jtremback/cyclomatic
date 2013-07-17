@@ -1,0 +1,130 @@
+
+gutter = 40px
+
+page-width = 966px
+
+number-of-columns = 12
+
+
+
+tablet = 767px
+phone = 480px
+
+under-tablet = "screen and (max-width: " + tablet + ")"
+under-phone  = "screen and (max-width: " + phone + ")"
+
+over-tablet = "screen and (min-width: " + tablet + ")"
+over-phone  = "screen and (min-width: " + phone + ")"
+
+only-tablet = "screen and (max-width: " + tablet + ") and (min-width: " + phone + ")"
+
+
+
+clearfix()
+	&:after
+		content ""
+		display table
+		clear both
+
+
+*, *:after, *:before 
+	-moz-box-sizing border-box
+	-webkit-box-sizing border-box
+	box-sizing border-box
+
+.cf
+	clearfix()
+
+//calculates the width and max-width given the intended number of columns.
+col-width(num)
+	one-col-width = 100% / number-of-columns
+	one-col-max-width = page-width / number-of-columns
+	width one-col-width * num
+	max-width one-col-max-width * num
+
+//iteratively creates the proper classes for use in html.
+for num in 1..number-of-columns
+	.col-{num}-{number-of-columns}
+		col-width(num)
+
+
+.center
+	float none
+	margin-left auto
+	margin-right auto
+	
+.no-gutter
+	padding-left 0
+	padding-right 0
+
+.dbl-gutter
+	padding-right gutter
+	padding-left gutter
+
+.inner-b-gutter
+	> *
+		padding-bottom gutter
+
+.b-gutter
+	padding-bottom gutter
+
+.t-gutter
+	padding-top gutter
+
+col()
+	padding-right gutter * .5
+	padding-left gutter * .5
+	float left
+	clearfix()
+
+
+[class*='col-']
+	col()
+
+
+.t_show
+	display none
+
+.t_only-show
+	display none
+
+.p_show
+	display none
+
+
+
+
+@media under-tablet
+	.t_show
+		display block
+
+	.t_hide
+		display none
+
+	//iteratively creates the proper classes for use in html.
+	for num in 1..number-of-columns
+		.t_col-{num}-{number-of-columns}
+			col-width(num)
+
+
+@media only-tablet
+	.t_only-show
+		display block
+
+	.t_only-hide
+		display none
+
+
+
+@media under-phone
+
+	.p_show
+		display block
+
+	.p_hide
+		display none
+
+	//iteratively creates the proper classes for use in html.
+	for num in 1..number-of-columns
+		.p_col-{num}-{number-of-columns}
+			col-width(num)

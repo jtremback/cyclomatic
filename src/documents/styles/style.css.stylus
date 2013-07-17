@@ -1,0 +1,245 @@
+@import "objectgrid"
+
+brand = #0F3A77
+darkgray = rgba(black, .6)
+accent1 = #9EE6FF
+accent2 = #D7F5FF
+offwhite = #FCFCFC
+
+shadow-1 = 0px 2px 2px 1px rgba(black, .1)
+shadow-2 = 0px 1px 2px 1px rgba(black, .1)
+
+
+serif-font = "Merriweather", serif 
+sans-font = "Source Sans Pro", sans-serif
+// sans-font = sans-serif
+display-font = 'Oleo Script Swash Caps', cursive
+
+//RESET
+*
+	box-sizing: border-box
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, outsput, ruby, section, summary, time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+	display: block
+
+//PAGE
+body
+	font-family sans-font
+	font-weight 300
+	text-rendering: optimizeLegibility
+	font-size: 24px
+	// word-spacing: .15em
+	line-height: 1
+	color darkgray
+	background offwhite
+	font-family sans-font
+
+
+p, pre
+	margin-bottom .75em
+
+ol, ul
+	margin-left: 1em
+
+li 
+	margin-bottom: 0.5em
+	margin-top: 0.5em
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+strong
+	font-weight: 700
+
+hr
+	margin gutter 0
+	height: 1px
+	border: none
+	background: lightgray
+
+h1, h2, h3, h4, h5, h6
+	font-family sans-font
+	font-style italic
+	line-height .9em
+	margin-top .5em
+	margin-bottom: .5em
+
+h1
+	font-size: 3em
+
+h2
+	font-size: 2em
+
+h3
+	font-size: 1.5em
+
+h4
+	font-size: 1.25em
+
+h5, h6
+	font-size: 1em
+
+a
+	color: brand
+	text-decoration: none 
+	cursor pointer
+	&:visited
+		color: darken(brand, 30%)
+		text-decoration: none 
+	&:hover, &:active
+		color: darken(brand, 30%)
+		text-decoration underline 
+
+
+a.no-link-style
+	color inherit !important
+	text-decoration inherit !important
+
+
+img
+	max-width: 100%
+	display block
+
+button, .button
+	-webkit-appearance: none;
+	font inherit
+	padding .5em 1em
+	background brand
+	color white
+	position relative
+	&:active
+		background lighten(brand, 20%)
+		top 2px
+		text-shadow 0 0 4px accent2
+
+form
+	padding .5rem
+
+input
+	font inherit
+	-webkit-appearance none
+	border-radius 0
+	padding .25em .25em
+	line-height 1
+	width 100%
+	margin-bottom .5rem
+	&:last-of-type
+		margin-bottom 1rem
+
+.pull-right
+	float right
+
+.pull-left
+	float left
+
+.text-center
+	text-align center
+
+.text-left
+	text-align left
+
+.text-right
+	text-align right
+	
+
+.topbar
+	width 100%
+	clearfix();
+	background brand
+	color white
+	i 
+		font-size 1em
+		padding .5em
+		z-index 2
+		position relative
+	._title
+		text-align center
+		font-family sans-font
+		font-weight 300
+		position absolute
+		clear none
+		font-size 1.5em
+		width 100%
+		line-height 1
+		top .4rem
+		left 0
+	&.-fix 
+		position fixed
+		top 0
+
+.blur
+	-webkit-filter blur(2px)
+
+#main, #route_select, #loading
+	&.-hide
+		display none
+
+
+#loading
+	display -webkit-box
+	-webkit-box-align: center
+	-webkit-box-pack: center
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	right 0
+	background white
+	opacity .5
+
+.route
+	display -webkit-box
+	._start, ._end
+		font-size .8em
+		-webkit-box-flex 1
+		padding .5rem 1rem
+		// ._title
+		// 	font-size .8em
+		._address
+			font-weight 400
+
+	._start
+		background accent1
+	._end
+		background accent2
+
+
+.direction
+	width 100%
+	padding 1rem
+	background accent2
+	&:first-child
+		font-weight 400
+		background accent1
+		-webkit-animation flashing .5s infinite
+	i
+		float left
+		margin-right .5rem
+
+.bottombar
+	background brand
+	width 100%
+	padding 1rem
+	color white
+	text-align center
+	position fixed
+	bottom 0
+	span 
+		font-weight 400
+		text-shadow 0 0 4px accent2
+
+
+@-webkit-keyframes flashing
+	0%
+		background-color accent1
+	100%
+		background-color accent2
